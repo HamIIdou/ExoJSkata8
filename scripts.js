@@ -11,19 +11,24 @@
 // console.log(nomDeMaFonction(On remplace le paramètre par ce qu'on désire)) // 
 
 // CODE ICI
-
-//----------------------------------------------------------------------------------------------//
+const sommeMult = (a,b) => {
+    return 2*(a*b);
+}
+console.log(sommeMult(2,3));
 // EXERCICE 2
 
 // Crée une fonction qui prend en paramètre un tableau et qui retourne le premier élément du tableau.
 // Exemple : [1, 2, 3] => 1
 // Pour rappel pour accéder à un élément d'un tableau on utilise la méthode [laplaceDuNombreDeL'élément] :
-// const monTableau = [1, 2, 3]
+const monTableau = [1, 2, 3];
 // console.log(monTableau[0]) // 1
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const firstElem = (arr) => {
+    return arr[0];
+}
+console.log(firstElem(monTableau));
 // EXERCICE 3
 
 // Crée une fonction qui prend en paramètre un tableau et qui doit supprimer le dernier élément du tableau.
@@ -35,20 +40,32 @@
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const cutLast = (arr) => {
+    arr.pop();
+    return arr
+}
+cutLast(monTableau);
+console.log(monTableau);
 // EXERCICE 4
 
 // Crée une fonction qui prend en paramètre un tableau comprennant des nombres et qui doit retourner la somme de tous les nombres du tableau.
 // Exemple : [1, 2, 3] => 6
 // Pour rappel pour parcourir un tableau on utilise la méthode for :
-// const monTableau = [1, 2, 3]
+const monTab = [1, 2, 3];
 // for (let i = 0; i < monTableau.length; i++) {
 //   console.log(monTableau[i]) // 1, 2, 3
 // }
 
 // CODE ICI
+const sommeArray = (arr) => {
+    let result = 0
+    for (let i =0; i<arr.length; i++){
+        result = result + arr[i]
+    }
+    return result;
+}
+console.log(sommeArray(monTab));
 
-//----------------------------------------------------------------------------------------------//
 
 // EXERCICE 5
 //Crée une fonction qui prend en paramètre une string et qui doit retourner la string inversée.
@@ -63,18 +80,28 @@
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const inverse = (mot) => {
+    const tableauMot = mot.split("");
+    const tabRevers= tableauMot.reverse();
+    const newTab = tabRevers.join("");
+    return newTab;
+}
+console.log(inverse("salut"));
 
 // EXERCICE 6
 // Crée une fonction qui prend en paramètre un tableau et qui doit retourner le plus grand nombre du tableau.
 // Exemple : [1, 2, 3] => 3
 // Pour cette exercice on va utiliser la méthode Math.max() qui permet de retourner le plus grand nombre d'un tableau :
-// const monTableau = [1, 2, 3]
+const monBig = [1, 2, 3];
 // console.log(Math.max(...monTableau)) // 3
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const biggest = (arr) => {
+    const tab = Math.max(...arr);
+    return tab;
+}
+console.log(biggest(monBig));
 
 // EXERCICE 7
 // Crée une fonction qui prend en paramètre un tableau et qui doit retourner le plus petit nombre du tableau.
@@ -85,7 +112,13 @@
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const smallest = (arr) => {
+    const tab = Math.min(...arr);
+    return tab;
+
+}
+console.log(Math.min(...monBig));
+
 
 // EXERCICE 8
 
@@ -101,19 +134,31 @@
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const sansVoyelle = (mot) => {
+    const tab = mot.split("");
+    const tabFiltrer = tab.filter((element) =>{
+        return element !== "e" && element !== "o" && element !== "i" && element !== "u" && element !== "a" && element !== "y";
+    })
+    const fin = tabFiltrer.join("");
+    return fin;
+}
+console.log(sansVoyelle("hello"));
 
 // EXERCICE 9
 
 // Crée une fonction qui prend en paramètre un tableau et qui doit retourner le tableau trié par ordre croissant.
 // Exemple : [1, 3, 2] => [1, 2, 3]
 // Pour cette exercice on va utiliser la méthode sort() qui permet de trier un tableau :
-// const monTableau = [1, 3, 2]
+const monTrie = [5, 3, 2, 4 ,1];
 // console.log(monTableau.sort()) // [1, 2, 3]
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const trier = (tab) => {
+    tab.sort();
+    return tab;
+}
+console.log(trier(monTrie));
 
 // EXERCICE 10
 
@@ -130,35 +175,56 @@
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const rota = (mot) => {
+    const tab = [];
+    const tabMot = mot.split("")
+    for(let i =0; i<tabMot.length; i++){
+        const motRota = mot.substring(i) + mot.substring(0,i)
+        tab.push(motRota)
+    }
+    return tab;
+}
+console.log(rota("hello"));
 
 // EXERCICE 11
 
 // Crée une fonction qui prend en paramètre un tableau et qui doit ajouter le nombre 1 à chaque élément du tableau.
 // Exemple : [1, 2, 3] => [2, 3, 4]
 // Pour cette exercice on va utiliser la méthode map() qui permet de parcourir un tableau :
-// const monTableau = [1, 2, 3]
+const monAdd = [1, 2, 3]
 // const monTableauAddition = monTableau.map((element) => {
 //   return element + 1
 // })
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const ajout = (tab) => {
+    const tabAdd = tab.map((element) => {
+        return element +1
+    })
+    return tabAdd;
+}
+console.log(ajout(monAdd));
 
 // EXERCICE 12
 
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit retourner un tableau avec la longueur de chaque string.
 // Exemple : ["Hello", "World"] => [5, 5]
 // Pour cette exercice on va utiliser la méthode map() qui permet de parcourir un tableau :
-// const monTableau = ["Hello", "World"]
+const tableauSt = ["Hello", "World"]
 // const monTableauLongueur = monTableau.map((element) => {
 //   return element.length
 // })
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const tabString = (tab) => {
+    const nombElement = tab.map((element)=> {
+        return element.length
+    })
+    return nombElement;
+}
+console.log(tabString(tableauSt));
 
 // EXERCICE 13
 
@@ -172,8 +238,14 @@
 // })
 
 // CODE ICI
+const tabFirst = (tab) => {
+    const nombElement = tab.map((element)=> {
+        return element.charAt(0)
+    })
+    return nombElement;
+}
+console.log(tabFirst(tableauSt));
 
-//----------------------------------------------------------------------------------------------//
 
 // EXERCICE 14
 
@@ -183,18 +255,32 @@
 
 
 // CODE ICI
+const tabLast = (tab) => {
+    const nombElement = tab.map((element)=> {
+        return element.charAt(element.length-1)
+    })
+    return nombElement;
+}
+console.log(tabLast(tableauSt));
 
-//----------------------------------------------------------------------------------------------//
 
 // EXERCICE 15
 
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit renvoyer tout les string qui ont une longueur de 5 caractères ou plus.
 // Exemple : ["Hello", "World","Test", "Salut", "Yo"] => ["Hello", "World", "Salut"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la longueur de la string. Incice : la méthode length() permet de récupérer la longueur d'une string.
-
+const moreThanFive = ["Hello", "World","Test", "Salut", "Yo","Jaiplusde5"];
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const tabMoreThanFive = (tab) => {
+    const nombElement = tab.filter((element)=> {
+        if(element.length>=5){
+            return element
+        }
+    })
+    return nombElement;
+}
+console.log(tabMoreThanFive(moreThanFive));
 
 // EXERCICE 16
 
@@ -205,44 +291,70 @@
 // const somme = monTableau.reduce((accumulateur, element) => {
 //   return accumulateur + element
 // }, 0)
+const tab = [5, 6, 7];
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const sommeTab = (tab) => {
+    const somme = tab.reduce((i,element) => {
+        return i+ element
+    }, 0)
+    return somme
+}
+console.log(sommeTab(tab));
+
 
 // EXERCICE 17
 
 // Crée une fonction qui prend en deux paramètres qui sont deux tableaux de string et qui doit retourner un tableau avec tout les éléments des deux tableaux.
 // Exemple : ["Hello", "World"] et ["Test", "Salut"] => ["Hello", "World", "Test", "Salut"]
 // Pour cette exercice on va utiliser la méthode concat() qui permet de concaténer deux tableaux :
-// const monTableau1 = ["Hello", "World"]
-// const monTableau2 = ["Test", "Salut"]
+ const monTableau1 = ["Hello", "World"]
+ const monTableau2 = ["Test", "Salut"]
 // const monTableauConcat = monTableau1.concat(monTableau2)
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
 
 // CODE ICI
-
-//----------------------------------------------------------------------------------------------//
+const deuxTab = (tab1,tab2) => {
+    const tabConcat = tab1.concat(tab2)
+    return tabConcat;
+}
+console.log(deuxTab(monTableau1,monTableau2)); 
 
 // EXERCICE 18
 
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit retourner toutes les string qui ont la lettre "e".
-// Exemple : ["Poulet", "Chat", "Chien", "Cheval"] => ["Poulet", "Chien", "Cheval"]
+const tabE = ["Poulet", "Chat", "Chien", "Cheval"] //["Poulet", "Chien", "Cheval"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la présence de la lettre "e". Indice : la méthode includes() permet de savoir si une string contient une lettre ou un mot.
 
 // CODE ICI
 
-//----------------------------------------------------------------------------------------------//
+const tabWithE = (tab) => {
+    const newTab = tab.filter((element) => { 
+        return element.includes("e")
+    })
+    return newTab;
+}
+console.log(tabWithE(tabE))
 
 // EXERCICE 19
 
 // Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner tout les nombres qui sont pairs par ordre croissant.
-// Exemple : [ 2, 9, 6, 5, 6] => [2, 6, 6]
+const tabOrP = [ 2, 9, 6, 5, 6] //=> [2, 6, 6]
 // Indice : il y a plusieurs façon de faire, soit avec un for, soit avec la méthode filter() une fois ça fait utilise la méthode sort() qui permet de trier un tableau.
 
 // CODE ICI
-
-//----------------------------------------------------------------------------------------------//
+const nbPairsCroiss = (tab) => {
+    const newTab=[]
+    for(let i =0 ; i<tab.length;i++){
+        if(tab[i]%2 ===0){
+            newTab.push(tab[i])
+        }
+    }
+    newTab.sort();
+    return newTab
+}
+console.log(nbPairsCroiss(tabOrP));
 
 // EXERCICE 20
 
@@ -270,9 +382,6 @@
 
 
 
-
-
-// CODE ICI
 
 
 
