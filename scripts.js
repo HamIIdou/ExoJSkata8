@@ -380,7 +380,17 @@ console.log(nbPairsCroiss(tabOrP));
 // })
 // Indice 6 : Pour récupérer le premier élément d'un tableau tu peux utiliser la notation crochet : monTableau[0]
 
-
+const plusCourt = (string) => {
+    const tab = string.split(" ");
+    let result =100;
+    for (let i =0;i<tab.length;i++){
+        if (tab[i].length < result){
+            result = tab[i].length
+        }
+    }
+    return result
+}
+console.log (plusCourt("The quick brown fox jumps over the lazy dog"))
 
 
 
@@ -424,7 +434,27 @@ console.log(nbPairsCroiss(tabOrP));
 
 // CODE ICI
 
-
+const unAnagram = (str1,str2) => {
+    const tab1 = str1.split("")
+    const tab2 = str2.split("")
+    let result = true;
+    if(tab1.length != tab2.length)
+    {
+        result = false
+    }
+    else {
+        for(let i=0; i<tab1.length;i++){
+            for(let j=0; j<tab2.length;j++){
+                if ( tab[i] == tab[j]){
+                    result = true;
+                }
+                else {result= false};
+            }
+        }
+    }
+    return result
+}
+console.log(unAnagram("arbre","barre"))
 
 
 
@@ -464,7 +494,19 @@ console.log(nbPairsCroiss(tabOrP));
 // Indice 2 : Pour supprimer un élément d'un tableau vous pouvez utiliser la méthode splice() combiné à une boucle ou la méthode filter() qui permet de filtrer un tableau en fonction d'une condition.
 
 
-// CODE ICI
+const removeDouble = (string) =>{
+    const tab = string.split("");
+    for(let i=0;i<tab.length;i++){
+        for(let j=0;j<tab.length;j++){ // a supprimer si on veux seulement supprimer si elles sont cote a cote
+            if(tab[i]== tab[j+1]){
+                tab.splice(j+1,1)
+            }
+        }
+    }
+    const newTab = tab.join("")
+    return newTab
+}
+console.log(removeDouble("google"))
 
 
 
